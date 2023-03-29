@@ -4,10 +4,10 @@
         <div class="row">
             <div class="col-3" v-for="(character, index) in store.charactersList" :key="index">
                 <CharacterCard  
-                    :image="character.image_url"
+                    :image="character.card_images[0].image_url"
                     :name="character.name"
                     :race="character.race"
-                    
+                   
                 />
             </div>
 
@@ -37,7 +37,7 @@ export default{
 <style lang="scss" scoped>
 .container{
     background-color: white;
-    margin-top: 10px;
+   
 }
 
 

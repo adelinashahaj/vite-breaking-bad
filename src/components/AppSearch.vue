@@ -3,7 +3,10 @@
     <div class="container my-5">
         <div class="row ">
             <div class="col-auto">
-                <input type="text" class="form-control" placeholder="Search character" v-model="store.search" >
+                <select id="race" name="race" class="btn">
+            <option value="Dragon">Dragon</option>
+            <option value="Alien">Alien</option>
+        </select>
             </div>
             
         </div>
@@ -25,5 +28,9 @@
 </script>
 
 
-<style>
+<style lang="scss" scoped>
+.btn{
+    background-color: white;
+}
+
 </style>

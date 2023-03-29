@@ -1,6 +1,6 @@
 <template>
 <div class="character text-center">
-        <img class='img-fluid ' :src="image" :alt="name"/>
+        <img class='img-fluid ' :src="image"  :alt=" name"/>
         <h3>{{ name }}</h3>
         <h5>{{ race }}</h5>
         
@@ -20,6 +20,8 @@ export default{
 
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.character {
+    background-color: orange;
+}
 </style>
