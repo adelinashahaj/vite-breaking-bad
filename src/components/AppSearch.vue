@@ -32,5 +32,8 @@
 .btn{
     background-color: white;
 }
+.col-auto {
+    padding: 29px 0px;
+}
 
 </style>

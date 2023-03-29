@@ -37,6 +37,9 @@ export default{
 <style lang="scss" scoped>
 .container{
     background-color: white;
+    .row{
+        padding-top: 20px;
+    }
    
 }
 

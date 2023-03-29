@@ -22,6 +22,13 @@ export default{
 
 <style lang="scss" scoped>
 .character {
-    background-color: orange;
+    background-color: rgb(232, 105, 58);
+    
+}
+
+h3 {
+    font-size: 14px;
+    color: white;
+    padding: 10px 0px;
 }
 </style>
