@@ -4,9 +4,9 @@
 </template>
 
 <script>
-export default{
+export default {
     name: 'MyHeader',
-    props:{
+    props: {
         title: String
     }
 
