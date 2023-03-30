@@ -1,14 +1,12 @@
 <template>
-
-  <MyHeader title="YU-GI-OH Api"/>
+  <MyHeader title="YU-GI-OH Api" />
 
   <main>
     <AppSelect @doSelect="getCards" />
 
-    <ResultMessage/>
-  <CharactersList/>
+    <ResultMessage />
+    <CharactersList />
   </main>
-
 </template>
 
 <script>
@@ -28,7 +26,7 @@ export default {
     AppSelect,
     ResultMessage
   },
-  data(){
+  data() {
     return {
       store
     }
@@ -37,23 +35,26 @@ export default {
   methods: {
     getCards() {
 
-      let urlApi = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=30&offset=0';
-     
-        if (store.select.length > 0) {
-          urlApi += `?&archetype=${store.select}`;
-        }
+      let urlApi = 'https://db.ygoprodeck.com/api/v7/cardinfo.php';
 
-    axios.get(urlApi)
-    .then(response => {
-      this.store.charactersList = response.data.data;
-      console.log(this.store.charactersList);
-     
-    })
-  }
- 
+      if (store.select.length > 0) {
+        //urlApi = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?' + `&archetype=${store.select}`;
+        urlApi += `?archetype=${store.select}`;
+      } else {
+        urlApi += "?num=30&offset=0"
+      }
+
+      axios.get(urlApi)
+        .then(response => {
+          this.store.charactersList = response.data.data;
+          console.log(this.store.charactersList);
+
+        })
+    }
+
   },
-   created() {
-    this.getCards();
+  created() {
+    this.getCards(store.select);
   }
 
 
@@ -63,6 +64,5 @@ export default {
 
 
 <style lang="scss">
- @use './styles/general.scss'
-
+@use './styles/general.scss'
 </style>

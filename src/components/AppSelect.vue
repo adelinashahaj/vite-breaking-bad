@@ -4,6 +4,7 @@
         <div class="row ">
             <div class="col-auto">
         <select  v-model="store.select" @change="$emit('doSelect')">
+            <option value="">All</option>
             <option value="Noble Knight">Noble Knight</option>
             <option value="Alien">Alien</option>
             <option value="Melodious">Melodious</option>
