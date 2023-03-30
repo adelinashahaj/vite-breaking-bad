@@ -1,4 +1,5 @@
 <template>
+    
 <div class="character text-center">
         <img class='img-fluid ' :src="image"  :alt=" name"/>
         <h3>{{ name }}</h3>

@@ -3,7 +3,9 @@
   <MyHeader title="YU-GI-OH Api"/>
 
   <main>
-    <AppSearch />
+    <AppSelect @doSelect="getCards" />
+
+    <ResultMessage/>
   <CharactersList/>
   </main>
 
@@ -13,8 +15,9 @@
 import axios from 'axios';
 import { store } from './store.js';
 import MyHeader from './components/MyHeader.vue';
-import AppSearch from './components/AppSearch.vue';
+import AppSelect from './components/AppSelect.vue';
 import CharactersList from './components/CharactersList.vue';
+import ResultMessage from './components/ResultMessage.vue';
 
 
 export default {
@@ -22,7 +25,8 @@ export default {
   components: {
     MyHeader,
     CharactersList,
-    AppSearch
+    AppSelect,
+    ResultMessage
   },
   data(){
     return {
@@ -30,13 +34,26 @@ export default {
     }
 
   },
-  created() {
-    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Blue-Eyes')
+  methods: {
+    getCards() {
+
+      let urlApi = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=30&offset=0';
+     
+        if (store.select.length > 0) {
+          urlApi += `?&archetype=${store.select}`;
+        }
+
+    axios.get(urlApi)
     .then(response => {
       this.store.charactersList = response.data.data;
+      console.log(this.store.charactersList);
      
     })
-
+  }
+ 
+  },
+   created() {
+    this.getCards();
   }
 
 

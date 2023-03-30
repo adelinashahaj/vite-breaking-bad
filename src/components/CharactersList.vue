@@ -1,6 +1,7 @@
 <template>
 
     <div class="container">
+        
         <div class="row">
             <div class="col-3" v-for="(character, index) in store.charactersList" :key="index">
                 <CharacterCard  
